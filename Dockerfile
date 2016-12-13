@@ -14,7 +14,7 @@ RUN apt-get update;
 
 
 RUN apt-get install -y --force-yes nginx redis-server python python-pip python-dev build-essential \
-    php5.6  php5.6-redis php5.6-mcrypt php5.6-mongo php5.6-fpm redis-server;
+    php5.6  php5.6-redis php5.6-mcrypt php5.6-mongo php5.6-fpm php5.6-mysql redis-server;
 
 
 RUN pip install -U pip; pip --version;
