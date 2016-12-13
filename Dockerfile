@@ -1,4 +1,4 @@
-FROM php:5.6.28-fpm
+FROM ubuntu:16.04
 
 ENV TZ="Asia/Shanghai"
 
@@ -18,8 +18,9 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 RUN apt-get install -y apt-utils redis-server;
 
-RUN pecl install redis  mcrypt mysql;
+RUN apt-get install -y libsasl2-dev;
 
+RUN pecl install redis-2.2.7;
 
 
 WORKDIR /root
