@@ -1,10 +1,19 @@
-FROM ubuntu:16.04
+FROM ubuntu:14.04
 
 ENV TZ="Asia/Shanghai"
 
 RUN apt-get update;
 
-RUN apt-get install -y nginx  vim  ;
+
+RUN apt-get install -y software-properties-common python-software-properties;
+RUN add-apt-repository ppa:git-core/ppa;
+
+RUN add-apt-repository ppa:ondrej/php;
+
+RUN apt-get update;
+
+
+RUN apt-get install -y nginx  vim   php5.6  php5.6-redis php5.6-mcrypt php5.6-mongo php5.6-fpm ;
 RUN apt-get install -y python python-pip python-dev build-essential ;
 
 
