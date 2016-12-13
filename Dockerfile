@@ -30,7 +30,10 @@ RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php/5.6/fpm/php-fpm
 
 RUN sed -i -e "s/nodaemon=false/nodaemon=true/g" /etc/supervisord.conf
 
+RUN echo "files = /config/supervisor/*.conf" >> /etc/supervisord.conf
 
+
+RUN mkdir /run/php/
 
 
 
