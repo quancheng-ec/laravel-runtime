@@ -32,6 +32,8 @@ RUN sed -i -e "s/nodaemon=false/nodaemon=true/g" /etc/supervisord.conf
 
 RUN echo "files = /config/supervisor/*.conf" >> /etc/supervisord.conf
 
+RUN sed -i -e "s/;\[include\]/\[include\]/g" /etc/supervisord.conf
+
 
 RUN mkdir /run/php/
 
