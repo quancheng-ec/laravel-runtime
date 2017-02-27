@@ -9,6 +9,7 @@ RUN apt-get install -y software-properties-common python-software-properties;
 RUN add-apt-repository ppa:git-core/ppa;
 
 RUN add-apt-repository ppa:ondrej/php;
+RUN add-apt-repository ppa:nginx/stable
 
 RUN apt-get update;
 
