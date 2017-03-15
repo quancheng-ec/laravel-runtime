@@ -14,7 +14,7 @@ RUN add-apt-repository ppa:nginx/stable
 RUN apt-get update;
 
 
-RUN apt-get install -y --force-yes vim nginx redis-server python python-pip python-dev build-essential \
+RUN apt-get install -y --force-yes vim nginx node redis-server python python-pip python-dev build-essential \
     php5.6  php5.6-redis php5.6-mcrypt php5.6-mongo php5.6-fpm php5.6-mysql php5.6-curl php5.6-xml  \
     php5.6-zip php5.6-intl php5.6-gmp php5.6-mbstring  php5.6-amqp  php5.6-opcache php5.6-soap php5.6-bcmath php5.6-gd redis-server;
 
