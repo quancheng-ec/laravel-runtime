@@ -44,7 +44,7 @@ RUN pip install supervisor;
 RUN echo_supervisord_conf > /etc/supervisord.conf;
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-RUN sed -i '116i\/etc/nginx/sites-enabled/*;'  /etc/nginx/nginx.conf
+RUN sed -i '116i\include /etc/nginx/sites-enabled/*;'  /etc/nginx/nginx.conf
 
 RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php/5.6/fpm/php-fpm.conf
 
