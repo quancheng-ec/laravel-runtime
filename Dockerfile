@@ -30,7 +30,7 @@ RUN cd /zlib-1.2.11 && ./configure
 RUN cd /zlib-1.2.11 && make
 RUN cd /zlib-1.2.11 && make install
 RUN chmod +x /nginx-1.13.3/configure
-RUN cd /nginx-1.13.3 && ./configure --user=nginx --group=nginx --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-http_gzip_static_module --with-http_stub_status_module --with-http_ssl_module --with-pcre --with-file-aio --with-http_realip_module --add-module=/root/nginx-auth-ldap/ --with-ipv6 --with-debug
+RUN cd /nginx-1.13.3 && ./configure --user=nginx --group=nginx --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-http_gzip_static_module --with-http_stub_status_module --with-http_ssl_module --with-pcre --with-file-aio --with-http_realip_module --add-module=/nginx-auth-ldap/ --with-ipv6 --with-debug
 RUN cd /nginx-1.13.3 && make
 RUN cd /nginx-1.13.3 && make install
 
