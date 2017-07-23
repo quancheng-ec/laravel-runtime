@@ -14,9 +14,29 @@ RUN add-apt-repository ppa:chris-lea/nginx-devel
 RUN apt-get update;
 
 
-RUN apt-get install -y --force-yes vim nginx nodejs redis-server python python-pip python-dev build-essential \
+RUN apt-get install -y --force-yes vim wget git-core libpcre3 libpcre3-dev libssl-dev libldap2-dev libtool nodejs \
+    redis-server python python-pip python-dev build-essential \
     php5.6  php5.6-redis php5.6-mcrypt php5.6-mongo php5.6-fpm php5.6-mysql php5.6-curl php5.6-xml  \
     php5.6-zip php5.6-intl php5.6-gmp php5.6-mbstring  php5.6-amqp  php5.6-opcache php5.6-soap php5.6-bcmath php5.6-gd php5.6-xdebug redis-server;
+
+#编译安装nginx
+RUN wget https://nginx.org/download/nginx-1.13.3.tar.gz
+RUN git clone https://github.com/kvspb/nginx-auth-ldap.git
+RUN tar -xvzf nginx-1.13.3.tar.gz
+RUN cd nginx-1.13.3
+RUN chmod +x configure
+RUN cd ..
+RUN wget http://zlib.net/zlib-1.2.11.tar.gz
+RUN tar -zxf zlib-1.2.11.tar.gz
+RUN cd zlib-1.2.11
+RUN ./configure
+RUN make
+RUN make install
+RUN cd ../nginx-1.13.3
+RUN ./configure --user=nginx --group=nginx --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-http_gzip_static_module --with-http_stub_status_module --with-http_ssl_module --with-pcre --with-file-aio --with-http_r
+RUN make
+RUN make install
+
 
 
 RUN pip install -U pip; pip --version;
